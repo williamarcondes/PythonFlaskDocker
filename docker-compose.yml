@@ -1,0 +1,18 @@
+version: '3.6'
+
+services:
+  web:
+    container_name: flask-curriculo
+    build:
+      args:
+        - FLASK_ENV=dev
+      context: .
+    volumes:
+      - ./src:/src
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - TEMPLATES_AUTO_RELOAD=True
+      - PYTHONUNBUFFERED=1
+    ports:
+      - 8000:8000
